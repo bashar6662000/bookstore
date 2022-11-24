@@ -1,0 +1,158 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:url("./pexels-manuel-geissinger-325229.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.con{
+    width: 70%;
+    margin: auto;
+}
+.spe{
+     color: lightblue;
+
+}
+.current{
+color: rgb(97, 66, 66);
+}
+
+.dec1{
+width: 30%;
+    float: left;
+    color: white;
+    margin-top: 15px;
+    background-color:  rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    margin-left: 5px;
+}
+.dec{
+width: 63%;
+    float: right;
+    color: black;
+    margin-top: 15px;
+    background-color: white;
+    padding: 15px;
+    margin-left: 5px;
+}
+.dec2{
+width:63%;
+    float: left;
+    color: black;
+    margin-top: 15px;
+    background-color: white;
+    padding: 15px;
+    margin-left: 5px;
+}
+
+
+/*header*/
+header{
+    background-color:  rgba(0, 0, 0, 0.5);
+    padding-top: 30px;
+    min-height:60px ;
+    border-bottom: 5px darkgray solid;
+    padding-bottom: 50px;
+}
+header #branding {
+    float: left;
+    color: darkgray;
+    margin-top: -20px;
+
+}
+header nav{
+    float: right;
+
+
+}
+header nav a{
+    text-decoration: none;
+    color: black;
+}
+header nav ul li{
+    list-style: none;
+    float: left;
+    padding-right:15px ;
+    text-align:center;
+}
+
+
+header nav a:hover{
+ color: white;
+ font-weight: bold;
+ text-decoration: none;
+}
+
+
+/* show*/
+.Show{
+  margin-top: 100px;
+  text-align: center;
+}
+.Show h1{
+    font-size: 80px;
+    color: silver;
+}
+.Show p{
+color: skyblue;
+font-size: 40px;
+}
+
+
+footer{
+    color: blanchedalmond;
+    background-color:  rgba(0, 0, 0, 0.9);
+    padding-top: 30px;
+    min-height:40px ;
+    margin-top: 200px;
+}
+.foo{
+    margin-top:500px ;
+}
+.footer3{
+    color: blanchedalmond;
+    background-color:  rgba(0, 0, 0, 0.9);
+    padding-top: 30px;
+    min-height:40px ;
+    margin-top: 400px;
+
+}
+@media(max-width: 768px){
+    header #branding{
+        float: none;
+        text-align: center;
+
+    }
+    header nav {
+        float: none;
+        text-align: center;
+    }
+    header nav ul li{
+        float: none;
+        text-align: center;
+    }
+    .dec{
+        width: 90%;
+        float: none;
+    }
+    .dec1{
+        width: 90%;
+        float: none;
+    }
+    .dec2{
+        width: 95%;
+        float: none;
+    }
+    .foo{
+    margin-top: 300px;
+    }
+    .footer3 {
+    margin-top: 200px;
+    }
+
+
+
+}
