@@ -21,7 +21,9 @@
                         <li ><a href="/books/create" >اضافة كتاب</a></li>
                         <li><a href="/showbook" class="current">الكتب</a></li>
                         <li><a href="/categories" class="">  الفئات</a></li>
+                        <li><a href="users/show" >المستخدمين</a></li>
                         <li><a href="/Admin">الصفحة الرئيسية</a></li>
+
                     </ul>
                 </nav>
             </div>

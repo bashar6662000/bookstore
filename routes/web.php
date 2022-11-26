@@ -20,15 +20,11 @@ use Illuminate\Http\Request;
 Route::get('/', [App\Http\Controllers\bookcont::class,'return_to_welcome'])->name('return_to_welcome');
 /////////////info
 Route::get('/books', [App\Http\Controllers\infocontroller::class,'index'])->name('book');
-//////////////books login and registor
-Route::get('/loging', [App\Http\Controllers\bookcont::class,'loging'])->name('loging');
-
-Route::get('/loginn', [App\Http\Controllers\bookcont::class,'loginn'])->name('/') ;
-
-Route::get('/registered', [App\Http\Controllers\bookcont::class,'registering'])->name('registering');
-
-Route::get('/registerr', [App\Http\Controllers\bookcont::class,'retrn_regster'])->name('retrn_regster');
-
+////////////// login and registor
+Route::get('/loging', [App\Http\Controllers\usercontroller::class,'loging'])->name('loging');
+Route::get('/loginn', [App\Http\Controllers\usercontroller::class,'loginn'])->name('/') ;
+Route::get('/registered', [App\Http\Controllers\usercontroller::class,'registering'])->name('registering');
+Route::get('/registerr', [App\Http\Controllers\usercontroller::class,'retrn_regster'])->name('retrn_regster');
 Route::get('/logoutuser',function(Request $request){
 if(session()->has('login'))
 {
@@ -37,6 +33,11 @@ if(session()->has('login'))
 }
 return redirect('/loginn');
 });
+//////////////////// users
+Route::get('users/show', [App\Http\Controllers\usercontroller::class,'Show_all_users'])->name('Show_all_users');
+Route::get('/user/delete/{id}', [App\Http\Controllers\usercontroller::class,'Delete_user'])->name('Delete user');
+Route::get('/user/edit1/{id}', [App\Http\Controllers\usercontroller::class,'return_to_edit'])->name('edit2 user');
+Route::post('/user/edit2/{id}', [App\Http\Controllers\usercontroller::class,'edit_user'])->name('edit2 user');
 ////////////////////////books
 Route::get('/showbook',[App\Http\Controllers\bookcont::class,'showbook'])->name('showbook');
 Route::get('/books/create',[App\Http\Controllers\bookcont::class,'addbook'])->name('addbook');
@@ -54,10 +55,6 @@ Route::get('/Admin',[App\Http\Controllers\bookcont::class,'Return_to_Admin'])->n
 Route::get('/test',[App\Http\Controllers\bookcont::class,'test'])->name('Return_to_Admin');
 /***comments***/
 Route::post('/priview/comment/{id}',[App\http\controllers\commentscon::class,'add_comment']);
-
-
-
-
 /*********dont touch***********/
  function Return_categories_bynum($var){
     $cat=DB::table('categories')->value('name');
@@ -71,7 +68,7 @@ function Return_user_by_userid($id)
 }
 ////////////// categories
 Route::get('/categories',[App\Http\Controllers\categoriescon::class,'index'])->name('index');
-Route::get('/categories/create',[App\Http\Controllers\categoriescon::class,'addcadd_category1at1'])->name('addcat1');
+Route::get('/categories/create',[App\Http\Controllers\categoriescon::class,'add_category1'])->name('addcat2');
 Route::post('/categories/store',[App\Http\Controllers\categoriescon::class,'add_category2'])->name('addcat1');
 Route::get('/categories/delete/{id}',[App\Http\Controllers\categoriescon::class,'deletecat'])->name('deletecat');
 

@@ -23,6 +23,9 @@
                     <li ><a href="/categories" > الفئات </a></li>
                     <li><a href="/#" class="current">اضافة فئة</a></li>
                     <li><a href="/showbook" class=""> الكتب </a></li>
+                    <li><a href="users/show" >المستخدمين</a></li>
+                    <li><a href="/Admin">الصفحة الرئيسية</a></li>
+
                 </ul>
             </nav>
         </div>

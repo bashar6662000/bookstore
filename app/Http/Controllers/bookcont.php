@@ -85,68 +85,7 @@ class bookcont extends Controller
                           ->with('categories_preview',$categories_preview)
                           ->with('comments',$comments);
 }
-
-/*************************custom login************************* */
-public function loginn()
-{
-    return view('loginn');
-}
-public function loging(Request $request){
-    $usr=$request->input('login');
-    $pass=$request->input('pass');
-    $Correct_password=DB::table('users')->where('name',$usr)->value('password');
-
-    $id_pass=DB::table('users')->where('password',$pass)->value('id');
-    $id_usr=DB::table('users')->where('name',$usr)->value('id');
-
-    /*put the usr and pass values in session */
-    $request->session()->put('login',$usr);
-    $request->session()->put('pass',$pass);
-    /*returning the state of the user(Admin/normal_user)*/
-    $usr_state=DB::table('users')->where('name',$usr)->value('state');
-
-   if (DB::table('users')->where('name', $usr)->exists() && $pass==$Correct_password){
-        if ($usr_state=='Admin'){
-            return view('Admin')->with('cat',categories::all())
-                                ->with('book',books::all());
-        }else{
-            return  view('index')->with('usr',$usr)
-            ->with('cat',categories::all())
-            ->with('book',books::all());
-
-        }
-    } else{
-        return 'password or username are incorecct please try again';
-    }
-}
-/**********************custom login end*************************** */
-/**************registering start here***************** */
-public function retrn_regster()
-{
-    return view('register');
-}
-
-public function registering(REQUEST $request){
-    $usr=$request->input('register_username');
-    $pass=$request->input('register_password');
-    $email=$request->input('register_email');
-
-
-    if (DB::table('users')->where('name', $usr)->exists() || DB::table('users')->where('email', $email)->exists())
-    {
-        return 'name or email already exist please try again with a diffrent inputs';
-    }else{
-        DB::table('users')->insert(
-            $us=  array(
-                     'name'   =>  $usr,
-                     'password' => $pass,
-                     'email' => $email
-              ));
-              return view('loginn');
-    }
-        }
- /************************end registering********************************/
- /***************************searching*********************************/
+/***************searching************ */
 public function search(Request $request){
   $result = books::where('title','like',$request->input('search').'%')->get();
   $cat=categories::all();
@@ -168,7 +107,7 @@ public function return_to_welcome(){
  /***************************return to Admin*********************************/
  public function Return_to_Admin(){
     return view('Admin')->with('cat',categories::all())
-                        ->with('bkti',books::all());
+                        ->with('book',books::all());
 
  }
   /*************************** end return to Admin*********************************/
