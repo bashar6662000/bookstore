@@ -79,11 +79,16 @@ class bookcont extends Controller
 /******************for preview view************************ */
   public function return_to_preview($id ,Request $request){
   $comments = books::find($id)->comments;
+  $usr=$request->session()->get('login');
+  $session_user=DB::table('users')->where('name',$usr)->value('id');
   $preview_book = DB::table('books')->find($id);
   $categories_preview=DB::table('categories')->get();
   return view('preview')->with('preview_book',$preview_book)
                           ->with('categories_preview',$categories_preview)
-                          ->with('comments',$comments);
+                          ->with('comments',$comments)
+                          ->with('session_user',$session_user)
+                          ->with('usr',$usr);
+
 }
 /***************searching************ */
 public function search(Request $request){
@@ -119,6 +124,12 @@ public function Return_books_bycat($id)
   return view('books_by_cat')->with('book',$book)
                              ->with('category',$category)
                              ->with('res_cat',$res_cat);
+}
+public function test(Request $request){
+    $value = $request->session()->get('login');
+    $usr=$request->session()->get('login');
+    $session_user=DB::table('users')->where('name',$usr)->value('id');
+    return $session_user;
 }
 
 }

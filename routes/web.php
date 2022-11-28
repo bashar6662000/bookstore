@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Models\books;
+use App\Models\user;
+use App\Models\comments;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,11 +59,24 @@ Route::get('/Admin',[App\Http\Controllers\bookcont::class,'Return_to_Admin'])->n
 Route::get('/test',[App\Http\Controllers\bookcont::class,'test'])->name('Return_to_Admin');
 /***comments***/
 Route::post('/priview/comment/{id}',[App\http\controllers\commentscon::class,'add_comment']);
-/*********dont touch***********/
+Route::get('/priview/comment/delete/{id}', function ($id) {
+    DB::table('comments')->where('id', '=', $id)->delete();
+    return back()->withInput();
+});
+Route::get('/priview/comment/edit/{id}',[App\http\controllers\commentscon::class,'edit_comment']);
+/********************/
  function Return_categories_bynum($var){
     $cat=DB::table('categories')->value('name');
     return $cat;
     }
+function hide_comment_options($a,$b){
+if($a==$b){
+    return 'visible';
+}elseif($a!==$b)
+{
+    return 'hidden';
+}
+}
 
 function Return_user_by_userid($id)
 {

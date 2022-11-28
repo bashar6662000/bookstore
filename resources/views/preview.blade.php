@@ -27,7 +27,10 @@
 <div class="comment_sec">
 @foreach ($comments as $item)
 <p style="color: blue"> {{ Return_user_by_userid($item->User_id)}}</p>
-{{$item->text}}<br> <br>
+{{$item->text}}
+<br>
+<a href="/priview/comment/edit/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >edit</small><a></a>
+<br> <br>
 @endforeach
 </div>
 <!--Comments end here-->
@@ -52,7 +55,8 @@
         </textarea>
       </div>
     <!--End text area-->
-    <input type="submit"  class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s" >
+    <input type="submit"  class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s" value="اكتب تعليق" >
+   <a href="/priview/comment/refresh/{{$preview_book->id}}"> <input type="submit"  class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s" value=" اعادة تحميل التعليقات" ></a>
 </form>
 <br>
 </div>

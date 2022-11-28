@@ -22,7 +22,6 @@ public function loging(Request $request){
     $Correct_password=DB::table('users')->where('name',$usr)->value('password');
     $id_pass=DB::table('users')->where('password',$pass)->value('id');
     $id_usr=DB::table('users')->where('name',$usr)->value('id');
-
     /*put the usr and pass values in session */
     $request->session()->put('login',$usr);
     $request->session()->put('pass',$pass);
@@ -70,7 +69,7 @@ $email)->exists())
  }
 public function Delete_user($id){
 DB::table('users')->where('id', '=', $id)->delete();
- return redirect('users/show');
+ return redirect('users/show/');
 }
 
 public function Show_all_users(){

@@ -16,7 +16,7 @@ class commentscon extends Controller
     $request->flashOnly('comment_textarea');
     $usr_id=DB::table('users')->where('name',session('login'))->value('id');
     $preview_book = DB::table('books')->find($id);
-   ~ $comment_textarea=$request->input('comment_textarea');
+    $comment_textarea=$request->input('comment_textarea');
     if ($request->session()->has('login'))
     {
         if ($comment_textarea == "")
@@ -30,17 +30,24 @@ class commentscon extends Controller
             'Books_id' => $id,
             'user_id' =>$usr_id
         ));
-
-
-        a:   $comments = books::find($id)->comments;
-
-        $prbook = DB::table('books')->find($id);
-
-        return view('preview')->with('preview_book',$preview_book)
-                          ->with('comments',$comments);
+        return  redirect()->back();
     }else{
         return 'please login first';
     }
+   a: return  redirect()->back();
+  }
+ /* public function delete_comment($id){
+    DB::table('comments')->where('id', '=', $id)->delete();
+    return  redirect()->back();
+}*/
+
+  public function edit_comment($id,Request $request){
+
+    DB::table('comments')->update(
+        [
+            'text' => $comment_textarea
+        ]
+        );
   }
 }
 
