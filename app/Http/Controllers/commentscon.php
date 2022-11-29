@@ -13,7 +13,6 @@ class commentscon extends Controller
 {
  /*******************add_comment**************************** */
  public function add_comment(Request $request,$id){
-    $request->flashOnly('comment_textarea');
     $usr_id=DB::table('users')->where('name',session('login'))->value('id');
     $preview_book = DB::table('books')->find($id);
     $comment_textarea=$request->input('comment_textarea');
@@ -36,18 +35,12 @@ class commentscon extends Controller
     }
    a: return  redirect()->back();
   }
- /* public function delete_comment($id){
-    DB::table('comments')->where('id', '=', $id)->delete();
-    return  redirect()->back();
-}*/
-
-  public function edit_comment($id,Request $request){
-
-    DB::table('comments')->update(
-        [
-            'text' => $comment_textarea
-        ]
-        );
-  }
+    /**********edit comments*********** */
+    public function edit_comment($id,Request $request)
+    {
+    $comment_textarea=$request->input('comment_textarea');
+    DB::table('comments')->where('id',$id)->update([ 'text' => $comment_textarea,]);
+    return redirect()->back();
+    }
 }
 
