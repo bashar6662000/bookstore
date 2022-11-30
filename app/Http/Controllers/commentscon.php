@@ -40,7 +40,7 @@ class commentscon extends Controller
     {
     $comment_textarea=$request->input('comment_textarea');
     DB::table('comments')->where('id',$id)->update([ 'text' => $comment_textarea,]);
-    return redirect()->back();
+   // return redirect()->back();
+   return $comment_textarea;
     }
 }
-
