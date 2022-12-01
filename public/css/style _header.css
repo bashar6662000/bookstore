@@ -17,7 +17,6 @@ header nav ul li{
     display: inline;
 
 }
-
 .search-box{
     width: fit-content;
     height: fit-content;
@@ -38,7 +37,7 @@ header nav ul li{
     color:#fff;
   }
   .input-search::placeholder{
-    color:rgba(255,255,255,.5);
+    color:rgba(10, 0, 0, 0.5);
     font-size: 18px;
     letter-spacing: 2px;
     font-weight: 100;
@@ -86,5 +85,14 @@ header nav ul li{
     left: 50px;
     font-size: 30px;
 }
-
-
+.comment_sec{
+    width:100%;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+.comment_sec p{
+ padding-left: 15px;
+}
+.user_name{
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}

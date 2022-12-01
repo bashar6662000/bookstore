@@ -14,6 +14,7 @@
 <link href= "{{URL::asset('font-awesome-4.7.0/css/font-awesome.min.css') }} rel="stylesheet" type="text/css" >
 <link href="{{ URL::asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" >
 <link href= "{{URL::asset('css/tooplate-style.css')}}"rel="stylesheet" type="text/css" >
+<link href="{{URL::asset('css/style _header.css')}}" rel="stylesheet" type="text/css">
 </head>
 
     <body>
@@ -24,17 +25,17 @@
                         <img src="{{URL('public/Image/'.$preview_book->image)}}" alt="Image" class="img-fluid tm-img-center-sm">
                         <br> <br> <br>
 <!-- comments are here -->
-<div class="comment_sec">
-@foreach ($comments as $item)
-<p style="color: blue"> {{Return_user_by_userid($item->User_id)}}</p>
-{{$item->text}}
-<br>
-<a href="/priview/comment/edit/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >edit</small><a></a>
-<a href="/priview/comment/delete/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >delete</small><a></a>
 
-<br> <br>
-@endforeach
+@foreach ($comments as $item)
+
+<div class="comment_sec">
+<p style="color: blue" class="user_name">{{Return_user_by_userid($item->User_id)}}</p>
+<p>{{$item->text}}</p>
+<p><a href="/priview/comment/edit/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >edit</small></a>
+<a href="/priview/comment/delete/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >delete</small></a></p>
 </div>
+<br>
+@endforeach
 <!--Comments end here-->
 
                     </div>
@@ -58,7 +59,6 @@
       </div>
     <!--End text area-->
     <input type="submit"  class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s" value="اكتب تعليق" >
-   <a href="/priview/comment/refresh/{{$preview_book->id}}"> <input type="submit"  class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s" value=" اعادة تحميل التعليقات" ></a>
 </form>
 <br>
 </div>

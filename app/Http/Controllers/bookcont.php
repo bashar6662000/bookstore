@@ -65,7 +65,7 @@ class bookcont extends Controller
         $image_name=$request->file('image')->getClientOriginalName();
         $request->file('image')->move(public_path('public/Image'), $image_name);
         $data['image']= $image_name;
-
+        
             DB::table('books')
            ->where('id', $id)
            ->update(['title' => $book_name,

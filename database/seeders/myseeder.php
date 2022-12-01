@@ -18,8 +18,8 @@ class myseeder extends Seeder
     {
 
         DB::table('users')->insert([
-            ['name' => 'bashar', 'password' => '2013*b*B', 'state' => 'Admin', 'email' => 'basgar66629@gmail.com'],
-            ['name' => 'abdo', 'password' => '2010*a*A', 'state' => 'Admin', 'email' => 'abd077728@gmail.com'],
+            ['name' => 'bashar', 'password' => '2013*b*B', 'state' => 'Admin', 'email' => 'bashar66629@gmail.com'],
+            ['name' => 'abdo', 'password' => '2010*a*A', 'state' => 'Admin', 'email' => 'abdo77728@gmail.com'],
         ]);
 
         DB::table('categories')->insert([
@@ -30,6 +30,6 @@ class myseeder extends Seeder
             ['name' => 'كتب عن الاديان '],
             ['name' => ' كتب عن الالحاد'],
         ]);
-        
+
     }
 }

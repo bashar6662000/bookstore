@@ -16,6 +16,7 @@ class commentscon extends Controller
     $usr_id=DB::table('users')->where('name',session('login'))->value('id');
     $preview_book = DB::table('books')->find($id);
     $comment_textarea=$request->input('comment_textarea');
+
     if ($request->session()->has('login'))
     {
         if ($comment_textarea == "")
@@ -39,8 +40,10 @@ class commentscon extends Controller
     public function edit_comment($id,Request $request)
     {
     $comment_textarea=$request->input('comment_textarea');
-    DB::table('comments')->where('id',$id)->update([ 'text' => $comment_textarea,]);
-   // return redirect()->back();
-   return $comment_textarea;
+    DB::table('comments')
+    ->where('id',$id)
+    ->update([ 'text' =>$request->input('comment_textarea')]);
+    // return  redirect()->back();
+     dd($comment_textarea);
     }
 }
