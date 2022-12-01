@@ -66,7 +66,7 @@
 
           <select class="form-select" aria-label="Default select example" name='categories_id'>
            @foreach ($cat as $cat_item)
-           <option value={{$cat_item->id}} >{{$cat_item->name}}</option>
+           <option value={{$cat_item->id}}> {{$cat_item->name}} </option>
            @endforeach
           </select>
 

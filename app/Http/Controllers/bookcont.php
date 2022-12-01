@@ -20,6 +20,7 @@ class bookcont extends Controller
 }
 
      public function storebook(Request $request){
+
        $book_name =$request->input('book_name');
        $Author_name=$request->input('Author_name');
        $page_number=$request->input('page_number');
@@ -33,16 +34,15 @@ class bookcont extends Controller
 /******************************************* */
        DB::table('books')->insert(
         $tes=  array(
-            'categories_id' => $categories_id,
-                 'title'   =>  $book_name,
-                 'Author'   =>  $Author_name,
-                 'pagenumber'   =>  $page_number,
-                 'bio'   =>  $bio,
+            'categories_id'=>$categories_id,
+                 'title'=>$book_name,
+                 'Author'=>$Author_name,
+                 'pagenumber'=>$page_number,
+                 'bio'   => $bio,
                  'image' => $image_name,
                  'price' => $price
-
           ));
-                  return redirect('/books/create');
+                 return redirect('/books/create');
     }
 /****************************************************** */
     public function Deletebook($id){
@@ -65,7 +65,7 @@ class bookcont extends Controller
         $image_name=$request->file('image')->getClientOriginalName();
         $request->file('image')->move(public_path('public/Image'), $image_name);
         $data['image']= $image_name;
-        
+
             DB::table('books')
            ->where('id', $id)
            ->update(['title' => $book_name,

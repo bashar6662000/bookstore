@@ -96,3 +96,9 @@ header nav ul li{
 .user_name{
 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
+.bookslike h2 {
+position: absolute;
+top: 115%;
+left: 50%;
+transform: translate(-50%,-50%);
+}

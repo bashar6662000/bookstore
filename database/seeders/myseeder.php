@@ -23,12 +23,12 @@ class myseeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            ['name' => 'قصص الانبياء'],
-            ['name' => 'قصص السلف'],
-            ['name' => ' كتب أطفال'],
-            ['name' => 'كنب لزيادة الخبرة'],
-            ['name' => 'كتب عن الاديان '],
-            ['name' => ' كتب عن الالحاد'],
+            ['name' => ' book1'],
+            ['name' => 'book2 '],
+            ['name' => ' book3 '],
+            ['name' => 'book4  '],
+            ['name' => 'book5   '],
+            ['name' => ' book6  '],
         ]);
 
     }

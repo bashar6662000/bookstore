@@ -75,11 +75,11 @@ Route::get('/priview/comment/edit/{id}',[App\http\controllers\commentscon::class
     }
 
 /********************/
- function Return_categories_bynum($var){
-    $cat=DB::table('categories')->value('name');
+ function Return_categories_bynum($id)
+{
+    $cat=DB::table('categories')->where('id',$id)->value('name');
     return $cat;
-    }
-
+}
 function Return_user_by_userid($id)
 {
     $usr = DB::table('users')->where('id',$id)->value('name');
@@ -90,8 +90,6 @@ Route::get('/categories',[App\Http\Controllers\categoriescon::class,'index'])->n
 Route::get('/categories/create',[App\Http\Controllers\categoriescon::class,'add_category1'])->name('addcat2');
 Route::post('/categories/store',[App\Http\Controllers\categoriescon::class,'add_category2'])->name('addcat1');
 Route::get('/categories/delete/{id}',[App\Http\Controllers\categoriescon::class,'deletecat'])->name('deletecat');
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

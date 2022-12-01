@@ -42,7 +42,7 @@
                     <div class="col-md-6 col-sm-12">
                         <h2 class="tm-blue-text tm-margin-b-p">{{$preview_book->title}}</h2>
                         <p class="tm-margin-b-p">{{$preview_book->bio}}</p>
-                        <p class="tm-blue-text ">Categories: {{Return_categories_bynum($preview_book->categories_id)}}<br><a href="#" class="tm-blue-text">
+                        <p class="tm-blue-text ">Category: {{Return_categories_bynum($preview_book->categories_id)}}<br><a href="#" class="tm-blue-text">
                         <p class="tm-blue-text tm-s">page number:{{$preview_book->pagenumber}} <br> <a href="#" class="tm-blue-text">
                         <p class="tm-blue-text tm-s">Author:{{$preview_book->Author}} <br> <a href="#" class="tm-blue-text">
                         <p class="tm-blue-text tm-s">price:{{$preview_book->price}}  <br><a href="#" class="tm-blue-text"> <br>
@@ -62,18 +62,20 @@
 </form>
 <br>
 </div>
+
 <!----->
 </section>
+<!--<div class="bookslike">
+    <h2 class="tm-blue-text tm-margin-b-p" style="float: right">
+        مشابهة لهذا الكتاب</h2>
+</div>-->
 
                 <div class="tm-gallery no-pad-b">
                     <div class="row">
-
-
                     </div>
                 </div>
 
             </div>
-
             <footer>
 
             </footer>
