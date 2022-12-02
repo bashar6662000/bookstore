@@ -23,13 +23,104 @@ class myseeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            ['name' => ' book1'],
-            ['name' => 'book2 '],
-            ['name' => ' book3 '],
-            ['name' => 'book4  '],
-            ['name' => 'book5   '],
-            ['name' => ' book6  '],
+            ['name' => 'cat1'],
+            ['name' => 'cat2'],
+            ['name' => 'cat3'],
+            ['name' => 'cat4'],
+            ['name' => 'cat5'],
+            ['name' => 'cat6'],
         ]);
 
+
+        DB::table('books')->insert([
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+
+['categories_id'=>'4','title'=>'Rich dad poor dad','Author'=>'test author','pagenumber'=>'40','bio'=>'test bio','image'=>'GG.jpg','price'=>'50'],
+        ]);
     }
 }

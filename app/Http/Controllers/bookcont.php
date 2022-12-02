@@ -10,17 +10,13 @@ use Illuminate\Support\Facades\Storage;
 class bookcont extends Controller
 {
     public function showbook(){
-
          $books= DB::select('select * from books') ;
          return view('books.index')->with('books',$books);
      }
-
      public function addbook(){
       return view('books.create')->with('cat',categories::all());
 }
-
      public function storebook(Request $request){
-
        $book_name =$request->input('book_name');
        $Author_name=$request->input('Author_name');
        $page_number=$request->input('page_number');
@@ -88,7 +84,6 @@ class bookcont extends Controller
                           ->with('comments',$comments)
                           ->with('session_user',$session_user)
                           ->with('usr',$usr);
-
 }
 /***************searching************ */
 public function search(Request $request){
@@ -105,7 +100,7 @@ public function search(Request $request){
  /***************************return to welcome*********************************/
 public function return_to_welcome(){
     $category=categories::all();
-    $book=books::all();
+   $book= books::orderBy('id','desc')->take(20)->get();
     return view('welcome')->with('category',$category)
                           ->with('book',$book);
 }
