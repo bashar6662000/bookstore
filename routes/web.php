@@ -44,7 +44,7 @@ if(session()->has('login'))
 return redirect('/loginn');
 });
 //////////////////// users
-Route::get('users/show', [App\Http\Controllers\usercontroller::class,'Show_all_users'])->name('Show_all_users');
+Route::get('books/users/show', [App\Http\Controllers\usercontroller::class,'Show_all_users'])->name('Show_all_users');
 Route::get('/user/delete/{id}', [App\Http\Controllers\usercontroller::class,'Delete_user'])->name('Delete user');
 Route::get('/user/edit1/{id}', [App\Http\Controllers\usercontroller::class,'return_to_edit'])->name('edit2 user');
 Route::post('/user/edit2/{id}', [App\Http\Controllers\usercontroller::class,'edit_user'])->name('edit2 user');
