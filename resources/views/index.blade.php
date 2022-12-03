@@ -58,7 +58,6 @@ http://www.tooplate.com/view/2092-shelf
                         </li>
                         <li style="float:right"><a href="/logoutuser" ><button class="btn btn-outline-secondary" >logout</button></a></li>
                     </div>
-
                     </ul>
                 </nav>
                 <p class="Header_p">
@@ -69,7 +68,6 @@ http://www.tooplate.com/view/2092-shelf
                 </p>
             </header>
             <div class="tm-main-content">
-
                 <section class="tm-margin-b-l">
                         <h1 class="tm-main-title">الكتب الاكثر رؤاجا</h1>
                     <div class="tm-gallery">
@@ -79,7 +77,6 @@ http://www.tooplate.com/view/2092-shelf
                       @foreach ($book as $books)
                         <ul>
                              <!-- test-->
-
                           <div>
                             <li  style="display: block"  >
                <!--complete-->  <a href="/books/preview/{{$books->id}}">

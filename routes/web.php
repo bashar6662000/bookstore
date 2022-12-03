@@ -6,7 +6,6 @@ use App\Models\books;
 use App\Models\user;
 use App\Models\comments;
 use Illuminate\Support\Facades\DB;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,12 +22,19 @@ use Illuminate\Support\Facades\DB;
 });*/
 Route::get('/', [App\Http\Controllers\bookcont::class,'return_to_welcome'])->name('return_to_welcome');
 /////////////info
+
 Route::get('/books', [App\Http\Controllers\infocontroller::class,'index'])->name('book');
 ////////////// login and registor
 Route::get('/loging', [App\Http\Controllers\usercontroller::class,'loging'])->name('loging');
 Route::get('/loginn', [App\Http\Controllers\usercontroller::class,'loginn'])->name('/') ;
 Route::get('/registered', [App\Http\Controllers\usercontroller::class,'registering'])->name('registering');
 Route::get('/registerr', [App\Http\Controllers\usercontroller::class,'retrn_regster'])->name('retrn_regster');
+
+Route::get('/forgot', [App\Http\Controllers\usercontroller::class,'return_recover_mypassword'])->name('return_recover_mypassword');
+Route::get('/forgot/Email', [App\Http\Controllers\usercontroller::class,'Enter_email'])->name('Enter_email');
+Route::get('/forgot/Email/change', [App\Http\Controllers\usercontroller::class,'return_change_password'])->name('return_change_password');
+Route::get('/forgot/Email/change/recover', [App\Http\Controllers\usercontroller::class,'change_password'])->name('change_password');
+
 Route::get('/logoutuser',function(Request $request){
 if(session()->has('login'))
 {
@@ -42,6 +48,7 @@ Route::get('users/show', [App\Http\Controllers\usercontroller::class,'Show_all_u
 Route::get('/user/delete/{id}', [App\Http\Controllers\usercontroller::class,'Delete_user'])->name('Delete user');
 Route::get('/user/edit1/{id}', [App\Http\Controllers\usercontroller::class,'return_to_edit'])->name('edit2 user');
 Route::post('/user/edit2/{id}', [App\Http\Controllers\usercontroller::class,'edit_user'])->name('edit2 user');
+Route::get('/singup', [App\Http\Controllers\usercontroller::class,'user_in_session'])->name('user_in_session');
 ////////////////////////books
 Route::get('/showbook',[App\Http\Controllers\bookcont::class,'showbook'])->name('showbook');
 Route::get('/books/create',[App\Http\Controllers\bookcont::class,'addbook'])->name('addbook');
@@ -73,7 +80,6 @@ Route::get('/priview/comment/edit/{id}',[App\http\controllers\commentscon::class
         return 'hidden';
     }
     }
-
 /********************/
  function Return_categories_bynum($id)
 {
@@ -90,6 +96,8 @@ Route::get('/categories',[App\Http\Controllers\categoriescon::class,'index'])->n
 Route::get('/categories/create',[App\Http\Controllers\categoriescon::class,'add_category1'])->name('addcat2');
 Route::post('/categories/store',[App\Http\Controllers\categoriescon::class,'add_category2'])->name('addcat1');
 Route::get('/categories/delete/{id}',[App\Http\Controllers\categoriescon::class,'deletecat'])->name('deletecat');
+///////////////mail
+Route::get('/mail/new_user',[App\Http\Controllers\mailcontroller::class,'send_mail_to_new_user']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

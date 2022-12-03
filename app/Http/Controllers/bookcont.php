@@ -121,10 +121,9 @@ public function Return_books_bycat($id)
                              ->with('res_cat',$res_cat);
 }
 public function test(Request $request){
-    $value = $request->session()->get('login');
     $usr=$request->session()->get('login');
-    $session_user=DB::table('users')->where('name',$usr)->value('id');
-    return $session_user;
+    $user=DB::table('users')->where('name',$usr)->value('name');
+    return $user;
 }
 
 }

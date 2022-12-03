@@ -16,7 +16,7 @@
 
 
           <!-- Login Form -->
-          <form method="GET" action="/registered">
+          <form method="GET" action="/singup">
             <input type="text" id="login" class="fadeIn second" name="register_username" placeholder="login" required>
             <input type="text" id="password" class="fadeIn third" name="register_password" placeholder="password" required>
             <input type="text" id="password" class="fadeIn third" name="register_email" placeholder="email" required>
@@ -25,7 +25,7 @@
 
           <!-- Remind Passowrd -->
           <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a class="underlineHover" href="/forgot">Forgot Password?</a>
           </div>
 
         </div>

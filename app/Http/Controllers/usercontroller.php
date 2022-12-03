@@ -7,7 +7,10 @@ use App\Models\User;
 use App\Models\comments;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\mail;
+use App\mail\signup;
+use App\mail\forgot;
 class usercontroller extends Controller
 {
 /************************************* */
@@ -46,26 +49,38 @@ public function retrn_regster()
 {
     return view('register');
 }
-
-/*************************************** */
-public function registering(REQUEST $request){
-    $usr=$request->input('register_username');
-    $pass=$request->input('register_password');
-    $email=$request->input('register_email');
-
-    if (DB::table('users')->where('name', $usr)->exists() || DB::table('users')->where('email',
+public function user_in_session(Request $request){
+$usr=$request->input('register_username');
+$pass=$request->input('register_password');
+$email=$request->input('register_email');
+if (DB::table('users')->where('name', $usr)->exists() || DB::table('users')->where('email',
 $email)->exists())
-    {
-        return 'name or email already exist please try again with a diffrent inputs';
-    }else{
+{
+    return 'name or email already exist please try again with a diffrent inputs';
+}else
+{
+$request->session()->put('register_username',$usr);
+$request->session()->put('register_password',$pass);
+$request->session()->put('register_email',$email);
+$link="http://127.0.0.1:8000/registered";
+//return dd($request->session()->all());
+Mail::to($email)->send(new signup($link,$usr));
+return "please check your email";
+}
+}
+/***************registering************************ */
+public function registering(REQUEST $request){
+    $usr = Session::get('register_username');
+    $pass=session::get('register_password');
+    $email=session::get('register_email');
+
         DB::table('users')->insert(
-            $us=  array(
+            $us=array(
                      'name'   =>  $usr,
                      'password' => $pass,
                      'email' => $email
               ));
               return view('loginn');
-    }
  }
 public function Delete_user($id){
 DB::table('users')->where('id', '=', $id)->delete();
@@ -95,20 +110,37 @@ DB::table('users')->where('id',$id)->update(
     'state'=> $userstate
 ]);
 }
-public function confirm_email(Request $request){
-    $user_email=$request->input('user_email');
-    $user_password=DB::table('users')->where('email',$user_email)->value('password');
+/***************forgot my password************** */
+/*1*/public function return_recover_mypassword(){
+    return view('forgot_password');
+}
+
+/*2*/public function Enter_email(Request $request){
+$link=" http://127.0.0.1:8000/forgot/Email/change";
+
+$user_email=$request->input('user_email');
+$request->session()->put('user_email',$user_email);
+
 if(DB::table('users')->where('email',$user_email )->exists())
 {
-    return $user_password;
+    Mail::to($user_email)->send(new forgot($link));
+    return "check your email";
+}else{
+return "Email isnt exists";
 }
 }
-public function change_password(Request $request,$id)
+/*4*/public function return_change_password(){
+    return view('change_password');
+}
+/*4*/public function change_password(Request $request)
 {
+    $email = Session::get('user_email');
     $new_password=$request->input('new_password');
-    DB::table('users')->update([
+    DB::table('users')
+    ->where('email',$email)
+    ->update([
         'password'=> $new_password,
     ]);
-
+    return 'password changed';
 }
 }
