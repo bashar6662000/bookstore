@@ -59,13 +59,11 @@ http://www.tooplate.com/view/2092-shelf
             <div class="tm-main-content">
                 <section class="tm-margin-b-l">
                     <header>
-                        <h1 class="tm-main-title">  اخر التحميلات</h1>
+                        <h1 class="tm-main-title" style="float: right">  اخر التحميلات</h1>
+                        <br>
                     </header>
-
-
                     <div class="tm-gallery">
                         <div class="row">
-
                       <!-- work here -->
                       @foreach ($book as $books)
                         <ul>
@@ -81,12 +79,9 @@ http://www.tooplate.com/view/2092-shelf
                             </a>
                             </li>
                         </div>
-
                          </ul>
                          @endforeach
                            <!--end test-->
-
-
                         </div>
                     </div>
 
