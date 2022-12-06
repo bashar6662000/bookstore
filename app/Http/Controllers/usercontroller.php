@@ -36,9 +36,19 @@ public function loging(Request $request){
                                 ->with('book',books::all());
 
         }else{
-            return  view('index')->with('usr',$usr)
-            ->with('cat',categories::all())
-            ->with('book',books::all());
+            if($request->session()->exists('login'))
+            {
+                return  view('index')->with('usr',$usr)
+                ->with('cat',categories::all())
+                ->with('book',books::all());
+            }
+            else if($request->session()->missing('login'))
+            {
+                $category=categories::all();
+                $book= books::orderBy('id','desc')->take(20)->get();
+                return view('welcome')->with('category',$category)
+                                       ->with('book',$book);
+            }
         }
     } else{
         return 'password or username are incorecct please try again';

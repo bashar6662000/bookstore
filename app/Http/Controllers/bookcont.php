@@ -88,9 +88,8 @@ class bookcont extends Controller
 /***************searching************ */
 public function search(Request $request){
   $result = books::where('title','like',$request->input('search').'%')->get();
-  $cat=categories::all();
   return view('Searchresult')->with('result',$result)
-                             ->with('cat',$cat);
+                             ->with('category',categories::all());
 }
  /***************************end searching*********************************/
   public function ret_to_contact(){
@@ -99,7 +98,7 @@ public function search(Request $request){
   }
  /***************************return to welcome*********************************/
 public function return_to_welcome(){
-    $category=categories::all();
+   $category=categories::all();
    $book= books::orderBy('id','desc')->take(20)->get();
     return view('welcome')->with('category',$category)
                           ->with('book',$book);
@@ -120,7 +119,9 @@ public function Return_books_bycat($id)
                              ->with('category',$category)
                              ->with('res_cat',$res_cat);
 }
-public function test(Request $request){
+/************************************************************************ */
+public function test(Request $request)
+{
     $usr=$request->session()->get('login');
     $user=DB::table('users')->where('name',$usr)->value('name');
     return $user;

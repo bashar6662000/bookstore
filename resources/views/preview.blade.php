@@ -46,10 +46,12 @@
                     <div class="col-md-6 col-sm-12">
                         <h2 class="tm-blue-text tm-margin-b-p">{{$preview_book->title}}</h2>
                         <p class="tm-margin-b-p">{{$preview_book->bio}}</p>
-                        <p class="tm-blue-text ">Category: {{Return_categories_bynum($preview_book->categories_id)}}<br><a href="#" class="tm-blue-text">
-                        <p class="tm-blue-text tm-s">page number:{{$preview_book->pagenumber}} <br> <a href="#" class="tm-blue-text">
-                        <p class="tm-blue-text tm-s">Author:{{$preview_book->Author}} <br> <a href="#" class="tm-blue-text">
-                        <p class="tm-blue-text tm-s">price:{{$preview_book->price}}  <br><a href="#" class="tm-blue-text"> <br>
+                        <p class="tm-blue-text ">Category: {{Return_categories_bynum($preview_book->categories_id)}}<br><a  class="tm-blue-text">
+                        <p class="tm-blue-text tm-s">page number:{{$preview_book->pagenumber}} <br> <a  class="tm-blue-text">
+                        <p class="tm-blue-text tm-s">Author:{{$preview_book->Author}} <br> <a class="tm-blue-text">
+                        <p class="tm-blue-text tm-s">price:{{$preview_book->price}}  <br><a  class="tm-blue-text">
+                            <p class="tm-blue-text tm-s">price with shiping:{{$preview_book->price_with_shiping}}  <br><a
+                                class="tm-blue-text"> <br>
                        <a href="#" class="tm-btn tm-btn-blue">شراء</a>
                        <br> <br>
 <!--

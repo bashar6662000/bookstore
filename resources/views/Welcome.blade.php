@@ -55,6 +55,12 @@ http://www.tooplate.com/view/2092-shelf
                     </div>
                     </ul>
                 </nav>
+                <p class="Header_p">
+                    Manhal
+                </p>
+                <p class="header_small">
+                    your online book store
+                </p>
             </header>
             <div class="tm-main-content">
                 <section class="tm-margin-b-l">

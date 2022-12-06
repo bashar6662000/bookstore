@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\DB;
 });*/
 Route::get('/', [App\Http\Controllers\bookcont::class,'return_to_welcome'])->name('return_to_welcome');
 /////////////info
-
 Route::get('/books', [App\Http\Controllers\infocontroller::class,'index'])->name('book');
 ////////////// login and registor
 Route::get('/loging', [App\Http\Controllers\usercontroller::class,'loging'])->name('loging');
@@ -57,7 +56,7 @@ Route::get('/books/delete/{id}',[App\Http\Controllers\bookcont::class,'Deleteboo
 Route::get('/books/edit/{id}',[App\Http\Controllers\bookcont::class,'modifybook'])->name('modifybook');
 Route::post('/books/update/{id}',[App\Http\Controllers\bookcont::class,'update'])->name('update');
 Route::get('/books/preview/{id}',[App\Http\Controllers\bookcont::class,'return_to_preview'])->name('return_to_priview');
-Route::get('/books/searching',[App\Http\Controllers\bookcont::class,'search'])->name('search');
+Route::get('/books/searching/',[App\Http\Controllers\bookcont::class,'search'])->name('search');
 Route::get('/books/contact',[App\Http\Controllers\bookcont::class,'ret_to_contact'])->name('ret_to_contact');
 Route::get('/books/books_by_cat',[App\Http\Controllers\bookcont::class,'RV_books_by_cat'])->name('ret_to_contact');
 Route::get('/BG/{id}',[App\Http\Controllers\bookcont::class,'Return_books_bycat'])->name('return_book_by_cat');

@@ -22,6 +22,8 @@ class CreateBooksTable extends Migration
             $table->string('bio',3000)->nullable()->default('no_image');
             $table->string('image')->nullable()->default('no_image');
             $table->integer('price')->nullable()->default('000');
+            $table->integer('price_with_shiping')->nullable()->default('000');
+
             $table->timestamps();
         });
     }

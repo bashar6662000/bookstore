@@ -28,6 +28,6 @@ public $link;
      */
     public function build()
     {
-        return $this->view('change_pass_html');
+        return $this->view('mail.change_pass_html');
     }
 }
