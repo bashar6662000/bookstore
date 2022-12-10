@@ -105,8 +105,9 @@ public function return_to_welcome(){
 }
  /***************************return to Admin*********************************/
  public function Return_to_Admin(){
+    $book= books::orderBy('id','desc')->take(20)->get();
     return view('Admin')->with('cat',categories::all())
-                        ->with('book',books::all());
+                        ->with('book',$book);
 
  }
   /*************************** end return to Admin*********************************/
