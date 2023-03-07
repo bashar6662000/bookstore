@@ -22,7 +22,7 @@
                         <li ><a href="/books/create" >اضافة كتاب</a></li>
                         <li><a href="#" class="current">الكتب</a></li>
                         <li><a href="/categories" >الفئات</a></li>
-                        <li><a href="books/users/show">المستخدمين</a></li>
+                        <li><a href="/books/users/show">المستخدمين</a></li>
                         <li><a href="/Admin">الصفحة الرئيسية</a></li>
                     </ul>
                 </nav>
@@ -43,17 +43,18 @@
      <tbody>
 
             @foreach ($books as $item)
-            <a href="/books/preview/{{$item->id}}"><tr>
+            <a href="/books/preview/{{$item->id}}">
+            <tr>
             <th scope="row">{{$item->title}}</th>
             <th scope="row">{{$item->Author}}</th>
             <th scope="row">{{$item->pagenumber}}</th>
             <th scope="row">{{$item->price}}</th>
             <th scope="row">
-                <a href="/books/edit/{{$item->id}}">
-               <button type="button" class="btn btn-outline-success">تعديل</button>
+            <a href="/books/edit/{{$item->id}}">
+            <button type="button" class="btn btn-outline-success">تعديل</button>
             </a>
             <a href="/books/delete/{{$item->id}}">
-               <button type="button" class="btn btn-outline-danger">حذف</button>
+            <button type="button" class="btn btn-outline-danger">حذف</button>
             </a>
             </th>
           </tr>

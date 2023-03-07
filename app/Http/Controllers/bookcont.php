@@ -29,7 +29,7 @@ class bookcont extends Controller
   $data['image']= $image_name;
 /******************************************* */
        DB::table('books')->insert(
-        $tes=  array(
+        $tes=array(
             'categories_id'=>$categories_id,
                  'title'=>$book_name,
                  'Author'=>$Author_name,
@@ -74,14 +74,14 @@ class bookcont extends Controller
     }
 /******************for preview view************************ */
   public function return_to_preview($id ,Request $request){
-  $comments = books::find($id)->comments;
+  //$comments = books::find($id)->comments;
   $usr=$request->session()->get('login');
   $session_user=DB::table('users')->where('name',$usr)->value('id');
   $preview_book = DB::table('books')->find($id);
   $categories_preview=DB::table('categories')->get();
   return view('preview')->with('preview_book',$preview_book)
                           ->with('categories_preview',$categories_preview)
-                          ->with('comments',$comments)
+//->with('comments',$comments)
                           ->with('session_user',$session_user)
                           ->with('usr',$usr);
 }
@@ -123,9 +123,58 @@ public function Return_books_bycat($id)
 /************************************************************************ */
 public function test(Request $request)
 {
-    $usr=$request->session()->get('login');
-    $user=DB::table('users')->where('name',$usr)->value('name');
-    return $user;
+    if ($request->session()->has('wanted_book_id')) {
+        return $request->session()->get('wanted_book_id');
+    }
+    else
+    {
+        return 'no';
+    }
+}
+/********************************************************************* */
+public function return_pay(){
+    return view('pay');
+}
+public function store_in_cart($id,Request $request)
+{
+    /**putting the book in session as a matrix */
+   // $order= $request->session()->push('wanted_book',$wanted_book);
+
+   /**getting the book that user want */
+    $wanted_book_id=DB::table('books')->where('id',$id)->value('id');
+    $price_book=DB::table('books')->where('id',$id)->value('price');
+
+    /**adding the book into session table */
+    if(DB::table('purcheses')->where('books',$wanted_book_id)->exists())
+    {
+            $affected = DB::update(
+            'update purcheses set price = 5 where books = ?',
+            [$wanted_book]);
+            return "book already exists";
+    }
+    else
+    {
+          /*  $ses=DB::table('purcheses')->insert(
+            $pur= array('books'=>$wanted_book,
+            'price'=>20)
+        );*/
+
+         /**putting the book ids in session as a matrix */
+        $order= $request->session()->push('wanted_book_id',$wanted_book_id);
+
+        return 'book has been added to session';
+    }
+
+  return 'book has been added to my cart';
 }
 
+public function Show_cart(Request $request){
+    //$books_in_cart=DB::select('select * from purcheses');
+     $order=$request->session()->get('wanted_book_id');
+    return view('cart')->with('order',$order);
+}
+
+public function Empting_item_in_cart(){
+    $request->session()->pull('wanted_book_id','null');
+}
 }

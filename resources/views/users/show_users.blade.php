@@ -33,7 +33,6 @@
              <tr class="bg-info">
                <th scope="col">أسم المستخدم</th>
                 <th scope="col">البريد الالكتروني</th>
-                <th scope="col">كلمة السر</th>
                 <th scope="col">الحالة</th>
                 <th scope="col">خيارات</th>
 
@@ -46,7 +45,6 @@
         <tr>
             <th scope="row">{{$item->name}}</th>
             <th scope="row">{{$item->email}}</th>
-            <th scope="row">{{$item->password}}</th>
             <th scope="row">{{$item->state}}</th>
 
                 <th scope="row">
@@ -54,7 +52,7 @@
                    <button type="button" class="btn btn-outline-success">تعديل</button>
                 </a>
                 <a href="/user/delete/{{$item->id}}">
-                   <button type="button" class="btn btn-outline-danger">حذف</button>
+                   <button type="button" class="btn btn-outline-danger">حظر</button>
                 </a>
                 </th>
             </th>

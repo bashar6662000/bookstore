@@ -28,7 +28,6 @@ Route::get('/loging', [App\Http\Controllers\usercontroller::class,'loging'])->na
 Route::get('/loginn', [App\Http\Controllers\usercontroller::class,'loginn'])->name('/') ;
 Route::get('/registered', [App\Http\Controllers\usercontroller::class,'registering'])->name('registering');
 Route::get('/registerr', [App\Http\Controllers\usercontroller::class,'retrn_regster'])->name('retrn_regster');
-
 Route::get('/forgot', [App\Http\Controllers\usercontroller::class,'return_recover_mypassword'])->name('return_recover_mypassword');
 Route::get('/forgot/Email', [App\Http\Controllers\usercontroller::class,'Enter_email'])->name('Enter_email');
 Route::get('/forgot/Email/change', [App\Http\Controllers\usercontroller::class,'return_change_password'])->name('return_change_password');
@@ -43,7 +42,7 @@ if(session()->has('login'))
 return redirect('/loginn');
 });
 //////////////////// users
-Route::get('books/users/show', [App\Http\Controllers\usercontroller::class,'Show_all_users'])->name('Show_all_users');
+Route::get('/books/users/show', [App\Http\Controllers\usercontroller::class,'Show_all_users'])->name('Show_all_users');
 Route::get('/user/delete/{id}', [App\Http\Controllers\usercontroller::class,'Delete_user'])->name('Delete user');
 Route::get('/user/edit1/{id}', [App\Http\Controllers\usercontroller::class,'return_to_edit'])->name('edit2 user');
 Route::post('/user/edit2/{id}', [App\Http\Controllers\usercontroller::class,'edit_user'])->name('edit2 user');
@@ -56,12 +55,29 @@ Route::get('/books/delete/{id}',[App\Http\Controllers\bookcont::class,'Deleteboo
 Route::get('/books/edit/{id}',[App\Http\Controllers\bookcont::class,'modifybook'])->name('modifybook');
 Route::post('/books/update/{id}',[App\Http\Controllers\bookcont::class,'update'])->name('update');
 Route::get('/books/preview/{id}',[App\Http\Controllers\bookcont::class,'return_to_preview'])->name('return_to_priview');
+Route::get('/books/pay',[App\Http\Controllers\bookcont::class,'return_pay'])->name('return_pay');
 Route::get('/books/searching/',[App\Http\Controllers\bookcont::class,'search'])->name('search');
 Route::get('/books/contact',[App\Http\Controllers\bookcont::class,'ret_to_contact'])->name('ret_to_contact');
 Route::get('/books/books_by_cat',[App\Http\Controllers\bookcont::class,'RV_books_by_cat'])->name('ret_to_contact');
 Route::get('/BG/{id}',[App\Http\Controllers\bookcont::class,'Return_books_bycat'])->name('return_book_by_cat');
 Route::get('/Admin',[App\Http\Controllers\bookcont::class,'Return_to_Admin'])->name('Return_to_Admin');
+
+Route::get('/testt/{id}',[App\Http\Controllers\bookcont::class,'store_in_cart'])->name('store_in_cart');
 Route::get('/test',[App\Http\Controllers\bookcont::class,'test'])->name('Return_to_Admin');
+Route::get('/books/my_cart',[App\Http\Controllers\bookcont::class,'Show_cart'])->name('Show_cart');
+function Return_book_by_id($id)
+{
+    $book=DB::table('books')->where('id',$id)->value('title');
+    return $book;
+}
+
+function Return_book_by_price($id)
+{
+    $book=DB::table('books')->where('id',$id)->value('price');
+    return $book;
+}
+//Route::get('/books/preview/pay');
+
 /***comments***/
 Route::post('/priview/comment/{id}',[App\http\controllers\commentscon::class,'add_comment']);
 Route::get('/priview/comment/delete/{id}', function ($id) {
@@ -80,7 +96,7 @@ Route::get('/priview/comment/edit/{id}',[App\http\controllers\commentscon::class
     }
     }
 /********************/
- function Return_categories_bynum($id)
+function Return_categories_bynum($id)
 {
     $cat=DB::table('categories')->where('id',$id)->value('name');
     return $cat;

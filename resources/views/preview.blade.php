@@ -30,17 +30,6 @@
                     <div class="col-md-6 col-sm-12 mb-md-0 mb-5">
                         <img src="{{URL('public/Image/'.$preview_book->image)}}" alt="Image" class="img-fluid tm-img-center-sm">
                         <br> <br> <br>
-<!-- comments are here
-/*@foreach ($comments as $item)
-<div class="comment_sec">
-<p style="color: blue" class="user_name">{{Return_user_by_userid($item->User_id)}}</p>
-<p>{{$item->text}}</p>
-<p><a href="/priview/comment/edit/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >edit</small></a>
-<a href="/priview/comment/delete/{{$item->id}}" style="visibility:{{hide_comment_options($item->User_id,$session_user)}}" ><small >delete</small></a></p>
-</div>
-<br>
-@endforeach*/
--Comments end here-->
 
                     </div>
                     <div class="col-md-6 col-sm-12">
@@ -52,7 +41,7 @@
                         <p class="tm-blue-text tm-s">price:{{$preview_book->price}}  <br><a  class="tm-blue-text">
                             <p class="tm-blue-text tm-s">price with shiping:{{$preview_book->price_with_shiping}}  <br><a
                                 class="tm-blue-text"> <br>
-                       <a href="#" class="tm-btn tm-btn-blue">شراء</a>
+                       <a href="/testt/{{$preview_book->id}}" class="tm-btn tm-btn-blue">شراء</a>
                        <br> <br>
 <!--
 <form method="post" action="/priview/comment/{{$preview_book->id}}" enctype="multipart/form-data">

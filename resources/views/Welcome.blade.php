@@ -41,9 +41,9 @@ http://www.tooplate.com/view/2092-shelf
 
                         <div class="middle">
                         <li ><a href="#" class="current"> الصفحة الرئيسية </a></li>
-                        <li><a href="/showbook">حسابي</a></li>
-                        <li><a href="/categories">تواصل معنا</a></li>
-                        <li><a href="/categories"> الدعم الفني</a></li>
+                        <li><a href="/books/my_cart">مشترياتي</a></li>
+                        <li><a href="/books/contact">تواصل معنا</a></li>
+                        <li><a href="#"> الدعم الفني</a></li>
                         <li class="dropdown"><a href="" class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الفئات</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 @foreach ($category as $categories)

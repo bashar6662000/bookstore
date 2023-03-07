@@ -25,41 +25,6 @@
 
     <body>
         <div class="container">
-            <header class="tm-site-header">
-                <nav >
-                    <ul>
-                        <div class="middle">
-                             <!------>
-                             <form action="/books/searching">
-                             <div class="search-box" style="float: left">
-                            <button class="btn-search"><i class="fas fa-search"></i></button>
-                              <input type="text" class="input-search" placeholder="Type to Search..." name="search" required>
-                              </div>
-                            </form>
-                   <!------>
-                        <li ><a href="#" class="current"> الصفحة الرئيسية </a></li>
-                   <!--     <li><a href="/">حسابي</a></li> -->
-                        <li><a href="/Return_contact"> الدعم الفني</a></li>
-
-                        <li class="dropdown">
-                            <a href="" class=" dropdown-toggle" type="button"
-                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">الفئات</a>
-
-                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                                    @foreach ($category as $cate)
-                                    <a class="dropdown-item" href="/BG/{{$cate->id}}" >{{$cate->name}}</a>
-                                    @endforeach
-
-                                    </div>
-
-                            </li>
-                    </div>
-
-                    </ul>
-                </nav>
-            </header>
             <div class="tm-main-content">
                 <section class="tm-margin-b-l">
                     <header>

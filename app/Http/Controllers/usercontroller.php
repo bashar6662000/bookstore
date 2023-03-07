@@ -20,6 +20,7 @@ public function loginn()
 }
 /*********************************** */
 public function loging(Request $request){
+    $book=books::orderBy('id','desc')->take(20)->get();
     $usr=$request->input('login');
     $pass=$request->input('pass');
     $Correct_password=DB::table('users')->where('name',$usr)->value('password');
@@ -33,14 +34,14 @@ public function loging(Request $request){
    if (DB::table('users')->where('name', $usr)->exists() && $pass==$Correct_password){
         if ($usr_state=='Admin'){
             return view('Admin')->with('cat',categories::all())
-                                ->with('book',books::all());
+                                ->with('book',$book);
 
         }else{
             if($request->session()->exists('login'))
             {
                 return  view('index')->with('usr',$usr)
                 ->with('cat',categories::all())
-                ->with('book',books::all());
+                ->with('book',$book);
             }
             else if($request->session()->missing('login'))
             {
@@ -59,6 +60,7 @@ public function retrn_regster()
 {
     return view('register');
 }
+/************************************ */
 public function user_in_session(Request $request){
 $usr=$request->input('register_username');
 $pass=$request->input('register_password');
@@ -80,7 +82,8 @@ return "please check your email";
 }
 /***************registering************************ */
 public function registering(REQUEST $request){
-    $usr = Session::get('register_username');
+    /*get a value from the session*/
+    $usr=Session::get('register_username');
     $pass=session::get('register_password');
     $email=session::get('register_email');
 
@@ -92,11 +95,12 @@ public function registering(REQUEST $request){
               ));
               return view('loginn');
  }
+ /******************************* */
 public function Delete_user($id){
 DB::table('users')->where('id', '=', $id)->delete();
  return redirect('users/show/');
 }
-
+/********************************* */
 public function Show_all_users(){
   $user= DB::table('users')->where('state','normal_user')->get();
   return view('users.show_users')->with('user',$user);

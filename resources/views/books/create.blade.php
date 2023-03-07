@@ -25,7 +25,7 @@
                     <li ><a href="#" class="current">اضافة كتاب</a></li>
                     <li><a href="/showbook">الكتب</a></li>
                     <li><a href="/categories">الفئات</a></li>
-                    <li><a href="books/users/show" >المستخدمين</a></li>
+                    <li><a href="/books/users/show" >المستخدمين</a></li>
                     <li><a href="/Admin">الصفحة الرئيسية</a></li>
 
                 </ul>
